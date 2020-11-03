@@ -1,13 +1,44 @@
 class SortedList {
-  constructor() {}
+  constructor() {
+    this.items= []
+    this.length = this.items.length
+  }
 
-  add(item) {}
+  add(item) {
 
-  get(pos) {}
+    this.items.push(item)
+    this.items.sort(function(a,b) {
+      return a-b;
+    });
+    
+    return this.items
+   
+  }
 
-  max() {}
+  get(pos) {
+  
+    if(!this.items[pos]){
+      throw new Error('OutOfBounds');
+    }else{
+      return this.items[pos]
+      } 
+    }
 
-  min() {}
+
+  max() {
+    if(this.length === 0){
+      throw new Error('EmptySortedList');
+    }else{
+      return Math.max(...this.items)
+    }
+  
+  }
+
+  min() {
+    let Maxvalue = Math.min(...this.items)
+    return Maxvalue
+
+  }
 
   sum() {}
 
